@@ -29,7 +29,7 @@ function App() {
       {totalVotes === 0 ? 
       <Notification /> 
       : 
-      <VoteStats good={votes.good} neutral={votes.neutral} bad={votes.bad} totalVotes={totalVotes} positiveRate={positiveRate}/>}
+      <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate}/>}
     
     </>
   )
