@@ -25,11 +25,11 @@ function App() {
   return (
     <>
       <CafeInfo />
-      <VoteOptions canReset={totalVotes > 0} handleVote={handleVote} resetVotes={resetVotes}/>
+      <VoteOptions canReset={totalVotes > 0} onVote={handleVote} onReset={resetVotes}/>
       {totalVotes === 0 ? 
       <Notification /> 
       : 
-      <VoteStats good={votes.good} neutral={votes.neutral} bad={votes.bad} total={totalVotes} positive={positiveRate}/>}
+      <VoteStats good={votes.good} neutral={votes.neutral} bad={votes.bad} totalVotes={totalVotes} positiveRate={positiveRate}/>}
     
     </>
   )

@@ -1,21 +1,21 @@
 import css from "./VoteOptions.module.css"
 import type { VoteType} from '../../types/votes'
 
-interface VoteOptionsT {
+interface VoteOptionsProps {
     canReset: boolean,
-    handleVote: (type: VoteType) => void,
-    resetVotes: () => void
+    onVote: (type: VoteType) => void,
+    onReset: () => void
 }
 
-const VoteOptions = ({canReset, handleVote, resetVotes} : VoteOptionsT) => {
+const VoteOptions = ({canReset, onVote, onReset} : VoteOptionsProps) => {
 
     return (
         <>
             <div className={css.container}>
-                <button onClick={() => handleVote("good")} className={css.button}>Good</button>
-                <button onClick={() => handleVote("neutral")} className={css.button}>Neutral</button>
-                <button onClick={() => handleVote("bad")} className={css.button}>Bad</button>
-                {canReset && <button className={` ${css.button} ${css.reset}`} onClick={() => resetVotes()} >Reset</button>}
+                <button onClick={() => onVote("good")} className={css.button}>Good</button>
+                <button onClick={() => onVote("neutral")} className={css.button}>Neutral</button>
+                <button onClick={() => onVote("bad")} className={css.button}>Bad</button>
+                {canReset && <button className={` ${css.button} ${css.reset}`} onClick={() => onReset()} >Reset</button>}
             </div>
         </>
     )
